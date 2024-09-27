@@ -10,6 +10,7 @@ const App = () => {
         <nav className="bg-indigo-600 p-4 text-white text-center">
           <Link to="/" className="mx-4 hover:underline">Home</Link>
           <Link to="/all" className="mx-4 hover:underline">All USERS and BOOKS</Link>
+          <Link to="/dashbord" className="mx-4 hover:underline">Dashboard</Link>
         </nav>
         
         <Routes>
