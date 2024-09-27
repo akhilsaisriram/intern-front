@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import FilterBooks from "./FilterBooks";
 import BookTransactions from "./BookTransactions";
 const BookSearch = () => {
@@ -8,7 +9,18 @@ const BookSearch = () => {
   const [maxRent, setMaxRent] = useState("");
   const [results, setResults] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null); // Store the selected book object
+  const na=useNavigate()
 
+  useEffect(() => {
+    // Check if email is present in sessionStorage
+    const email = sessionStorage.getItem("email");
+    
+    if (!email || email === "") {
+      na("/"); 
+      alert("submit deatils to see ")
+      // Navigate to home page if email is not present
+    }
+  }, [na]);
   // Search by book name
   const handleNameSearch = async (e) => {
     const value = e.target.value;
